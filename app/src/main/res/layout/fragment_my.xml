@@ -36,19 +36,19 @@
                 android:layout_height="8.0dip"
                 android:background="@color/black_alpha_03" />
 
-            <com.cn5.appstore.view.widget.MyEnterLayout
+            <com.seabreeze.appstore.view.widget.MyEnterLayout
                 android:id="@+id/book_game_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/list_item_normal_selector" />
 
-            <com.cn5.appstore.view.widget.MyEnterLayout
+            <com.seabreeze.appstore.view.widget.MyEnterLayout
                 android:id="@+id/buy_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/list_item_normal_selector" />
 
-            <com.cn5.appstore.view.widget.MyEnterLayout
+            <com.seabreeze.appstore.view.widget.MyEnterLayout
                 android:id="@+id/huaban_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -60,25 +60,25 @@
                 android:background="@color/black_alpha_03" />
 
 
-            <com.cn5.appstore.view.widget.MyEnterLayout
+            <com.seabreeze.appstore.view.widget.MyEnterLayout
                 android:id="@+id/setting_computer"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/list_item_normal_selector" />
 
-            <com.cn5.appstore.view.widget.MyEnterLayout
+            <com.seabreeze.appstore.view.widget.MyEnterLayout
                 android:id="@+id/faq_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/list_item_normal_selector" />
 
-            <com.cn5.appstore.view.widget.MyEnterLayout
+            <com.seabreeze.appstore.view.widget.MyEnterLayout
                 android:id="@+id/check_update_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/list_item_normal_selector" />
 
-            <com.cn5.appstore.view.widget.MyEnterLayout
+            <com.seabreeze.appstore.view.widget.MyEnterLayout
                 android:id="@+id/about_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"

@@ -11,7 +11,7 @@
         android:layout_height="170dip"
         android:orientation="vertical" >
         <!-- 自动滑动gallery -->
-        <com.cn5.appstore.view.widget.AutoGallery
+        <com.seabreeze.appstore.view.widget.AutoGallery
             android:id="@+id/headline_image_gallery"
             android:layout_width="fill_parent"
             android:layout_height="170dip"
@@ -21,7 +21,7 @@
 
 
         <!-- 滑动图片的指示器 -->
-        <com.cn5.appstore.view.widget.FlowIndicator
+        <com.seabreeze.appstore.view.widget.FlowIndicator
             android:id="@+id/headline_circle_indicator"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
             android:layout_marginBottom="@dimen/res_textsize_15dp"
             app:radius="5dp"
             app:space="2dp" >
-        </com.cn5.appstore.view.widget.FlowIndicator>
+        </com.seabreeze.appstore.view.widget.FlowIndicator>
 
     </RelativeLayout>
 

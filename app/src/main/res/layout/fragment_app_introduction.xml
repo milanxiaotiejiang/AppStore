@@ -59,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:text="应用标签"/>
 
-                <com.cn5.appstore.view.widget.FlowLayout
+                <com.seabreeze.appstore.view.widget.FlowLayout
                     android:id="@+id/flowLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

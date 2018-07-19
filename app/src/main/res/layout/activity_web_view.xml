@@ -9,7 +9,7 @@
         android:id="@+id/title"
         layout="@layout/title" />
 
-    <com.cn5.appstore.view.widget.ProgressWebView
+    <com.seabreeze.appstore.view.widget.ProgressWebView
         android:id="@+id/wv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

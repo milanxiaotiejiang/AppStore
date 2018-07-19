@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cn5.appstore.mvp.view.activity.WebViewActivity">
+    tools:context="com.seabreeze.appstore.mvp.view.activity.WebViewActivity">
 
 </android.support.constraint.ConstraintLayout>

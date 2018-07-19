@@ -32,7 +32,7 @@
             android:id="@+id/appdetail_head"
             layout="@layout/appdetail_item_head" />
 
-        <com.cn5.appstore.view.widget.SubTabNavigator
+        <com.seabreeze.appstore.view.widget.SubTabNavigator
             android:id="@+id/subTab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

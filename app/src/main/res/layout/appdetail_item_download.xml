@@ -21,7 +21,7 @@
             android:layout_width="200.0dip"
             android:layout_height="30.0dip"
             android:layout_centerInParent="true">
-            <com.cn5.appstore.view.widget.DownloadProgressButton
+            <com.seabreeze.appstore.view.widget.DownloadProgressButton
                 android:id="@+id/detail_download_button"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
@@ -49,7 +49,7 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <com.cn5.appstore.view.widget.DetailShareButton
+                <com.seabreeze.appstore.view.widget.DetailShareButton
                     android:id="@+id/detail_download_share_button"
                     android:layout_width="24.0dip"
                     android:layout_height="24.0dip"
