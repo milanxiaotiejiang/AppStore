@@ -1,7 +1,7 @@
 package com.seabreeze.appstore.base;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import com.seabreeze.appstore.di.component.ActivityComponent;
 import com.seabreeze.appstore.di.component.DaggerActivityComponent;

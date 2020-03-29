@@ -51,7 +51,7 @@
             app:textSize="12sp"
             app:textUnSelectColor="@color/sub_tab_unselected"></com.zhxu.appstore.demo.view.widget.SubTabNavigator>
 
-        <android.support.v4.view.ViewPager
+        <androidx.viewpager.widget.ViewPager
             android:id="@+id/vp"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

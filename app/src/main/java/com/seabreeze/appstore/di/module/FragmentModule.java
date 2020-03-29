@@ -2,7 +2,7 @@ package com.seabreeze.appstore.di.module;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 
 import com.seabreeze.appstore.di.scope.ContextLife;
 import com.seabreeze.appstore.di.scope.PerFragment;

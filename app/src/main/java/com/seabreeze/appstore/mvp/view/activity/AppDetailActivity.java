@@ -2,8 +2,8 @@ package com.seabreeze.appstore.mvp.view.activity;
 
 import android.os.Environment;
 import android.os.SystemClock;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 import android.text.format.Formatter;
 import android.view.View;
 import android.widget.ImageView;
@@ -40,63 +40,63 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 
-public class AppDetailActivity extends BaseMvpActivity<AppDetailPresenterImpl> implements AppDetailView,HttpDownManager.DownloadObserver {
+public class AppDetailActivity extends BaseMvpActivity<AppDetailPresenterImpl> implements AppDetailView
+        , HttpDownManager.DownloadObserver {
 
     @BindView(R.id.title_text)
-    TextView title_text ;
+    TextView title_text;
 //    @BindView(R.id.iv_search)
 //    ImageView iv_search ;
 
     @BindView(R.id.iv_back)
-    ImageView iv_back ;
-
+    ImageView iv_back;
 
 
     @BindView(R.id.detail_head_app_icon_imageview)
-    ImageView detail_app_icon ;
+    ImageView detail_app_icon;
     @BindView(R.id.detail_head_app_name_textview)
-    TextView detail_app_name ;
+    TextView detail_app_name;
     @BindView(R.id.detail_head_download_count_textview)
-    TextView detail_app_download_count ;
+    TextView detail_app_download_count;
     @BindView(R.id.detail_head_app_stars_ratingbar)
-    RatingBar detail_app_stars ;
+    RatingBar detail_app_stars;
     @BindView(R.id.detail_head_label_layout_linearlayout)
-    RelativeLayout detail_head_label_layout ;
+    RelativeLayout detail_head_label_layout;
     @BindView(R.id.detail_head_label_icon_layout_linearlayout)
-    LinearLayout detail_head_label_icon_layout ;
+    LinearLayout detail_head_label_icon_layout;
     @BindView(R.id.detail_head_lable_folding_textview)
-    TextView detail_head_lable_folding ;
+    TextView detail_head_lable_folding;
     @BindView(R.id.detail_head_safe_icon_container_linearlayout)
-    LinearLayout detail_head_safe_icon_container ;
+    LinearLayout detail_head_safe_icon_container;
     @BindView(R.id.detail_head_safe_icon_layout_linearlayout)
-    LinearLayout detail_head_safe_icon_layout ;
+    LinearLayout detail_head_safe_icon_layout;
     @BindView(R.id.subTab)
-    SubTabNavigator subTabNavigator ;
+    SubTabNavigator subTabNavigator;
     @BindView(R.id.vp)
-    ViewPager mViewPager ;
+    ViewPager mViewPager;
     @BindView(R.id.appdetail_head)
-    LinearLayout appdetail_head ;
+    LinearLayout appdetail_head;
     @BindView(R.id.detail_download_button)
-    DownloadProgressButton detail_download_button ;
+    DownloadProgressButton detail_download_button;
     @BindView(R.id.detail_download_share_button)
-    DetailShareButton detail_download_share_button ;
+    DetailShareButton detail_download_share_button;
     @BindView(R.id.detail_download_comment_button_linearlayout)
-    LinearLayout detail_download_comment_button_linearlayout ;
+    LinearLayout detail_download_comment_button_linearlayout;
 
     @Inject
-    public AppDetailPresenterImpl appDetailPresenter ;
+    public AppDetailPresenterImpl appDetailPresenter;
 
-    private String packageName ;
+    private String packageName;
 
-    private AppDetailBean appDetailBean ;
+    private AppDetailBean appDetailBean;
     protected boolean expand = false;
 
-    private List<Fragment> fragments = null ;
+    private List<Fragment> fragments = null;
 
     private DbDownUtil dbUtil;
     private HttpDownManager manager;
-    private DownInfo downInfo ;
-    private File outputFile ;
+    private DownInfo downInfo;
+    private File outputFile;
 
     @Override
     protected void initLayout() {
@@ -116,7 +116,7 @@ public class AppDetailActivity extends BaseMvpActivity<AppDetailPresenterImpl> i
             }
         });
         //设置沉浸式状态栏背景
-        if(title_bar != null)
+        if (title_bar != null)
             title_bar.setBackgroundResource(R.color.black_alpha_5);
         title_text.setText(getResources().getString(R.string.title_activity_app_detail));
     }
@@ -124,15 +124,15 @@ public class AppDetailActivity extends BaseMvpActivity<AppDetailPresenterImpl> i
     @Override
     protected void initData() {
         super.initData();
-        manager= HttpDownManager.getInstance();
+        manager = HttpDownManager.getInstance();
         manager.registerObserver(this);
-        dbUtil= DbDownUtil.getInstance();
+        dbUtil = DbDownUtil.getInstance();
         packageName = getIntent().getStringExtra("packageName");
         downInfo = dbUtil.queryDownBy(packageName.hashCode());
-        if(downInfo == null) {
+        if (downInfo == null) {
             outputFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), packageName + ".apk");
         }
-        appDetailPresenter.getAppDetailData(this,packageName);
+        appDetailPresenter.getAppDetailData(this, packageName);
 
 
     }
@@ -145,7 +145,7 @@ public class AppDetailActivity extends BaseMvpActivity<AppDetailPresenterImpl> i
 
     @Override
     public void onAppDetailDataSuccess(AppDetailBean appDetailBean) {
-        this.appDetailBean = appDetailBean ;
+        this.appDetailBean = appDetailBean;
         setDetailHead();
     }
 
@@ -155,11 +155,11 @@ public class AppDetailActivity extends BaseMvpActivity<AppDetailPresenterImpl> i
     }
 
 
-    private void setDetailHead(){
-        Glide.with(UIUtils.getContext()).load(appDetailBean.getIcoUrl()).into(detail_app_icon) ;
+    private void setDetailHead() {
+        Glide.with(UIUtils.getContext()).load(appDetailBean.getIcoUrl()).into(detail_app_icon);
         detail_app_name.setText(appDetailBean.getName());
         detail_app_download_count.setText(appDetailBean.getIntro());
-        detail_app_stars.setRating(Float.parseFloat(appDetailBean.getStars())) ;
+        detail_app_stars.setRating(Float.parseFloat(appDetailBean.getStars()));
 
         setLabel();
         setSafeLabel();
@@ -169,31 +169,33 @@ public class AppDetailActivity extends BaseMvpActivity<AppDetailPresenterImpl> i
         detail_head_label_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(expand){
-                    expand = false ;
+                if (expand) {
+                    expand = false;
                     detail_head_safe_icon_layout.setVisibility(View.GONE);
                     detail_head_lable_folding.setBackgroundResource(R.drawable.ic_public_arrow_down);
-                }else {
-                    expand = true ;
+                } else {
+                    expand = true;
                     detail_head_safe_icon_layout.setVisibility(View.VISIBLE);
                     detail_head_lable_folding.setBackgroundResource(R.drawable.ic_public_arrow_up);
                 }
             }
         });
     }
-    private void setLabel(){
-        for(AppDetailBean.LabelName labelNamesBean : appDetailBean.getLabelNameList()){
+
+    private void setLabel() {
+        for (AppDetailBean.LabelName labelNamesBean : appDetailBean.getLabelNameList()) {
             View labelView = UIUtils.inflate(R.layout.appdetail_item_head_label_item);
             TextView label = (TextView) labelView.findViewById(R.id.appdetail_head_label_textview);
             label.setText(labelNamesBean.getName());
-            if(labelNamesBean.getType() == 1){
+            if (labelNamesBean.getType() == 1) {
                 label.setTextColor(getResources().getColor(R.color.app_not_safe_textcolor));
             }
             detail_head_label_icon_layout.addView(labelView);
         }
     }
-    private void setSafeLabel(){
-        for(AppDetailBean.SafeLabel safeLabelsBean : appDetailBean.getSafeLabelList()){
+
+    private void setSafeLabel() {
+        for (AppDetailBean.SafeLabel safeLabelsBean : appDetailBean.getSafeLabelList()) {
             View safeLabelView = UIUtils.inflate(R.layout.appdetail_item_head_safe_item);
             TextView safe_checker = (TextView) safeLabelView.findViewById(R.id.safe_checker_textview);
             TextView safe_checker_label = (TextView) safeLabelView.findViewById(R.id.safe_checker_label);
@@ -208,12 +210,13 @@ public class AppDetailActivity extends BaseMvpActivity<AppDetailPresenterImpl> i
             detail_head_safe_icon_container.addView(safeLabelView);
         }
     }
-    private void setSubTab(){
-        fragments = new ArrayList<>() ;
-        AppDetailPagerAdapter appDetailPagerAdapter = new AppDetailPagerAdapter(getSupportFragmentManager()) ;
-        AppIntroductionFragment appIntroductionFragment = new AppIntroductionFragment() ;
-        AppCommentFragment appCommentFragment = new AppCommentFragment() ;
-        AppRecommendFragment appRecommendFragment = new AppRecommendFragment() ;
+
+    private void setSubTab() {
+        fragments = new ArrayList<>();
+        AppDetailPagerAdapter appDetailPagerAdapter = new AppDetailPagerAdapter(getSupportFragmentManager());
+        AppIntroductionFragment appIntroductionFragment = new AppIntroductionFragment();
+        AppCommentFragment appCommentFragment = new AppCommentFragment();
+        AppRecommendFragment appRecommendFragment = new AppRecommendFragment();
 
         fragments.add(appIntroductionFragment);
         fragments.add(appCommentFragment);
@@ -229,20 +232,20 @@ public class AppDetailActivity extends BaseMvpActivity<AppDetailPresenterImpl> i
         subTabNavigator.setRightText(appDetailBean.getTabInfoList().get(2));
     }
 
-    private void setDetailDown(){
-        if(downInfo == null) {
+    private void setDetailDown() {
+        if (downInfo == null) {
             detail_download_button.setStartText("安装 " + Formatter.formatFileSize(UIUtils.getContext(),
                     Long.parseLong(appDetailBean.getSize())));
-        }else{
-            if(downInfo.getState() == DownState.DOWN){
+        } else {
+            if (downInfo.getState() == DownState.DOWN) {
                 detail_download_button.setState(DownloadProgressButton.STATUS_PROGRESS_BAR_DOWNLOADING);
                 manager.startDown(downInfo);
-            }else if(downInfo.getState() == DownState.PAUSE){
+            } else if (downInfo.getState() == DownState.PAUSE) {
                 detail_download_button.setState(DownloadProgressButton.STATUS_PROGRESS_BAR_PAUSE);
-            }else if(downInfo.getState() == DownState.FINISH){
+            } else if (downInfo.getState() == DownState.FINISH) {
                 detail_download_button.setState(DownloadProgressButton.STATUS_PROGRESS_BAR_BEGIN);
             }
-            detail_download_button.setProgress((int) (100 * downInfo.getReadLength()/downInfo.getCountLength()));
+            detail_download_button.setProgress((int) (100 * downInfo.getReadLength() / downInfo.getCountLength()));
         }
 
         detail_download_button.setStateChangeListener(new DownloadProgressButton.StateChangeListener() {
@@ -261,7 +264,7 @@ public class AppDetailActivity extends BaseMvpActivity<AppDetailPresenterImpl> i
                             @Override
                             public void run() {
                                 AppInfoUtils.install(downInfo.getSavePath());
-                                if(dbUtil != null && downInfo != null)
+                                if (dbUtil != null && downInfo != null)
                                     dbUtil.update(downInfo);
                             }
                         });
@@ -274,7 +277,7 @@ public class AppDetailActivity extends BaseMvpActivity<AppDetailPresenterImpl> i
             public void onLoadingTask() {
                 detail_download_button.setMax(100);
 
-                if(downInfo == null){
+                if (downInfo == null) {
                     downInfo = new DownInfo(appDetailBean.getDownloadUrl());
                     downInfo.setId((long) packageName.hashCode());
                     downInfo.setState(DownState.START);
@@ -282,24 +285,24 @@ public class AppDetailActivity extends BaseMvpActivity<AppDetailPresenterImpl> i
                     dbUtil.save(downInfo);
 
                 }
-                if(downInfo.getState()!= DownState.FINISH){
+                if (downInfo.getState() != DownState.FINISH) {
                     manager.startDown(downInfo);
                 }
             }
         });
     }
 
-    public String getAppPackageName(){
-        return packageName ;
+    public String getAppPackageName() {
+        return packageName;
     }
 
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(manager != null){
+        if (manager != null) {
             manager.unRegisterObserver(this);
-            if(downInfo != null)
+            if (downInfo != null)
                 dbUtil.update(downInfo);
         }
     }
@@ -311,7 +314,7 @@ public class AppDetailActivity extends BaseMvpActivity<AppDetailPresenterImpl> i
 
     @Override
     public void onDownloadProgressed(DownInfo info) {
-        if(downInfo != null && info.getId() == downInfo.getId()) {
+        if (downInfo != null && info.getId() == downInfo.getId()) {
             detail_download_button.setProgress((int) (100 * info.getReadLength() / info.getCountLength()));
         }
     }

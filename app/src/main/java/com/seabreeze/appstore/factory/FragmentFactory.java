@@ -1,8 +1,6 @@
 package com.seabreeze.appstore.factory;
 
 
-import android.support.v4.app.Fragment;
-
 import com.seabreeze.appstore.base.BaseFragment;
 import com.seabreeze.appstore.mvp.view.fragment.AppManagerFragment;
 import com.seabreeze.appstore.mvp.view.fragment.CategoryFragment;

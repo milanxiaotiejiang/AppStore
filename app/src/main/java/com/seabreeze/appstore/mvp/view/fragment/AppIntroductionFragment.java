@@ -2,7 +2,7 @@ package com.seabreeze.appstore.mvp.view.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.text.format.Formatter;
 import android.view.View;
 import android.widget.ImageView;

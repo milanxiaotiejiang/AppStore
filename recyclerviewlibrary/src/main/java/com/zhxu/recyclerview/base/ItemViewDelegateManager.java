@@ -1,6 +1,6 @@
 package com.zhxu.recyclerview.base;
 
-import android.support.v4.util.SparseArrayCompat;
+import androidx.collection.SparseArrayCompat;
 
 /**
  * Created by xzhang on 2017/5/21.
